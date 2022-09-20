@@ -1,24 +1,42 @@
 const Discord = require('discord.js');
+const { state } = require('./config');
+
+require('http')
+  .createServer((req, res) => res.end('hola'))
+  .listen();
 
 const client = new Discord.Client({
   intents: 32767,
 });
+const path = require('path');
+const fs = require('fs');
 
-client.on('ready', () => {
-  console.log('Estoy listo');
-  client.application.commands.set([
-    {
-      name: 'ping',
-      description: 'Pong',
-      options: [],
-    },
-  ]);
-});
+const dirEvents = fs.readdirSync(path.join(__dirname, 'events'));
+const dirCommands = fs.readdirSync(path.join(__dirname, 'commands'));
 
-client.on('interactionCreate', (int) => {
-  if (int.isCommand() && int.commandName === 'ping') {
-    int.reply('Pong!');
+for (const fileEvent of dirEvents) {
+  const event = require(path.join(__dirname, 'events', fileEvent));
+  client.on(event.name, (...args) => event.run(client, ...args));
+}
+
+client.commands = new Discord.Collection();
+for (const subFolder of dirCommands) {
+  const filesCommands = fs.readdirSync(
+    path.join(__dirname, 'commands', subFolder)
+  );
+
+  for (const fileCommand of filesCommands) {
+    const command = require(path.join(
+      __dirname,
+      'commands',
+      subFolder,
+      fileCommand
+    ));
+    console.log(`${command.name} ok`);
+    client.commands.set(command.name, command);
   }
-});
+}
 
-client.login(process.env.DISCORD_TOKEN);
+const auth = state();
+
+client.login(auth);
