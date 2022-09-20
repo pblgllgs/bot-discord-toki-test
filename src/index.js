@@ -3,7 +3,7 @@ const { state } = require('./config');
 
 require('http')
   .createServer((req, res) => res.end('hola'))
-  .listen();
+  .listen(process.env.PORT);
 
 const client = new Discord.Client({
   intents: 32767,
