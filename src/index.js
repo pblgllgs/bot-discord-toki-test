@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { state } = require('./config');
+require('dotenv').config();
 
 require('http')
   .createServer((req, res) => res.end('hola'))
@@ -37,6 +37,4 @@ for (const subFolder of dirCommands) {
   }
 }
 
-const auth = state();
-
-client.login(auth);
+client.login(process.env.DISCORD_TOKEN);
