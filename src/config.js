@@ -1,4 +1,4 @@
-const uso = 'pro';
+const uso = 'dev';
 require('dotenv').config();
 
 const state = () => {
