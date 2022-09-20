@@ -1,0 +1,1 @@
+wworker: node src/index.js
