@@ -32,8 +32,8 @@ Transferencia Nuevo Contacto	-
 Transferencia Max	 -
 Saldo En Cuenta	Sin Limite -
 Beneficios y APP	
-Descuentos	★★
-CashBack (Devoluciones)	★
+Descuentos	
+CashBack (Devoluciones)	
 Evaluacion APP Play Store	3,9`);
   },
 };
