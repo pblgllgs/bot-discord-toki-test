@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'Tenpo',
+  name: 'tenpo',
   description: 'Datos de Tenpo',
   options: [],
   run: async (client, int) => {
