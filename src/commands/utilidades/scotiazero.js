@@ -4,9 +4,7 @@ module.exports = {
   options: [],
   run: async (client, int) => {
     int.reply(`Datos de Scotiazero...
-
 Costos Generales	Scotiazero
-
 Apertura	$0
 Mantencion	$0
 Giro Cajeros del Mismo Banco	$0
@@ -27,15 +25,12 @@ Compra Fisica	$2.000.000
 Compra Online	$400.000
 Compra/Dia	2.000.000
 Giro Max Cajero	2.000.000
-
 Abono
 Renta Acreditada - Sin Limite
 Renta No Acreditada - $2.000.000(Cuenta CLP) $500.000 (Cuenta USD)
-
 Transferencia Nuevo Contacto	-
 Transferencia Max	 -
 Saldo En Cuenta	Sin Limite -
-
 Beneficios y APP	
 Descuentos	★★
 CashBack (Devoluciones)	★
